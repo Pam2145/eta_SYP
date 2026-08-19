@@ -185,7 +185,19 @@ async function updateAllBusEtas() {
 }
 
 updateAllBusEtas();
-setInterval(updateAllBusEtas, 10000);
+setInterval(() => {
+  updateAllBusEtas();
+  updateLastUpdatedTime();
+}, 10000);
+
+function updateLastUpdatedTime() {
+  const d = new Date();
+  const hours = d.getHours().toString().padStart(2, '0');
+  const minutes = d.getMinutes().toString().padStart(2, '0');
+  const seconds = d.getSeconds().toString().padStart(2, '0');
+  const formattedTime = `${hours}:${minutes}:${seconds}`;
+  document.getElementById('last_upd_text').textContent = formattedTime;
+}
 
 function updateDisplayedMins() {
   document.querySelectorAll('.Mins[data-eta]').forEach(element => {
