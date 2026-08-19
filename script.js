@@ -247,7 +247,7 @@ function updateDateTime() {
   // 2. Format Date (DD/MM/YY)
   const day = d.getDate().toString().padStart(2, '0');
   const month = (d.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-indexed
-  const year = d.getFullYear().toString().slice(-2); // Extracts last two digits
+  const year = d.getFullYear(); // Extracts last two digits
 
   // 3. Get Weekday
   const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
